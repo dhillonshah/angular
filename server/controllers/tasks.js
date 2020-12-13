@@ -51,5 +51,27 @@ router.post('/',(req, res) => {
     }
     })
 })
+//delete
+router.delete('/:id',(req, res) => {
+    Task.remove({_id: req.params._id}, (err, task) => {
+
+        if (err) {
+            return res.send(err).status(400)
+        } else {
+            (res.json(task).status(201))
+        }
+    })
+})
+//put
+router.put('/:id',(req, res) => {
+    Task.update({_id: req.params._id},req.body, (err, task) => {
+
+        if (err) {
+            return res.send(err).status(400)
+        } else {
+            (res.json(task).status(201))
+        }
+    })
+})
 //make public
 module.exports = router

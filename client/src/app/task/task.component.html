@@ -13,9 +13,10 @@
     <label class="control-label col-md-2">Priority: *</label>
     <input name="priority" id="priority" required [(ngModel)]="priority" type="number" min="1" max="5" />
   </fieldset>
-  <button class="offset-2 btn btn-primary" (click)="addTask()">Save</button>
-<!--  <button class="offset-2 btn btn-primary" (click)="updateTask()" *ngIf="_id">Save</button>-->
-<!--  <button class="btn btn-success" (click)="clearForm()">Reset</button>-->
+  <input type="hidden" name="_id" id="_id" [(ngModel)]="_id" />
+  <button class="offset-2 btn btn-primary" (click)="addTask()" *ngIf="!_id">Save</button>
+  <button class="offset-2 btn btn-primary" (click)="updateTask()" *ngIf="_id">Save</button>
+  <button class="btn btn-success" (click)="clearForm()">Reset</button>
 </section>
 <table class="table table-striped table-hover">
   <tr>
